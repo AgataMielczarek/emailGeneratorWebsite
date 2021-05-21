@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+<div class="container text text-center">
+    <h1>Result</h1>
+
+    <div class="alert alert-primary" >
+    {{mail}}
+    </div>
+
+
+    <a class="btn btn-info" href= "{% url 'generator:home' %}" > Home </a> 
+
+</div>
+{% endblock content%}

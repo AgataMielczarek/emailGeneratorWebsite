@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+<div class="container text text-center">
+    <h1>E-mail Generator</h1>
+    <form action="{% url 'generator:result' %}" method="POST">
+        <select name = 'length' required>
+            <option value="" disabled selected>Choose length</option>
+            <option value="6">6 characters</option>
+            <option value="7">7 characters</option>
+            <option value="8">8 characters</option>
+            <option value="9">9 characters</option>
+            <option value="10">10 characters</option>
+        </select>
+        <br>
+        <br>
+        <select name="domain" required>
+            <option value="" disabled selected>Choose domain</option>
+            <option value="@gmail.com">Gmail</option>
+            <option value="@interia.pl">Interia</option>
+            <option value="@o2.pl">O2</option>       
+        </select>
+        <br>
+        <br>
+        <label for="numbers">Include numbers</label>
+        <input type="checkbox" id="numbers" name="numbers">
+        <br>
+        <br>
+        <label for="special">Include special characters</label>
+        <input type="checkbox" id="special" name="special">
+        <br>
+        <br>
+        {% csrf_token %}
+        <button class="btn btn-success" type="submit">Generate</button>
+
+    </form>
+    <br>
+    <a class="btn btn-outline-info" href= "{% url 'generator:about' %}" > About page </a>     
+</div>
+{% endblock content%}
